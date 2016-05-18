@@ -1,8 +1,12 @@
 defmodule ExPrimaToolbox.Task.Bump do
+  @moduledoc """
+  bump task
+  upgrade the mix.exs version and tag/push a release
+  """
+
   use ExPrimaToolbox.Task
 
   def run!(context) do
-    IO.inspect(context)
     if context.verbose > 0 do
       write "Running bump command"
     end
