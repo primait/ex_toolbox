@@ -5,7 +5,9 @@ defmodule ExToolbox.Task.Version do
     if context.verbose > 0 do
       write "Running version command"
     end
-    write :success, version
+    write("mix file: " <> mix_file)
+    write "app name: :" <> to_string(app_name)
+    write :success, "version: " <> version
     print_to_file(context, version)
   end
 
