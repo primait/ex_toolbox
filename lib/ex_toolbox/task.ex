@@ -18,6 +18,7 @@ defmodule ExToolbox.Task do
       def write(:exit), do: IO.puts [color_exit, "PRIMA> ", color_reset, "exit"]
       def write(msg), do: IO.puts [color, "PRIMA> ", color_reset, msg]
       def write(:exit, msg), do: IO.puts [color_exit, "PRIMA> ", color_reset, msg]
+      def write(:skip, msg), do: IO.puts [color_exit, "PRIMA> ", color_reset, msg]
       def write(:success, msg), do: IO.puts [color_success, "PRIMA> ", color_reset, msg]
       def write(:question, msg), do: IO.puts [color_question, "PRIMA> ", color_reset, msg]
       def write(:cmd, msg), do: IO.puts [color_command, "EXEC> ", color_reset, msg]

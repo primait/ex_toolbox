@@ -29,6 +29,7 @@ defmodule ExToolbox do
     option :minor, type: :boolean, help: "upgrade the minor version"
     option :major, type: :boolean, help: "upgrade the major version"
     option :env, default: "", help: "environment"
+    option :git, default: true, type: :boolean, help: "perform git operations"
 
     run context do
       BumpTask.run!(context)

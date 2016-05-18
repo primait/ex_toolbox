@@ -24,13 +24,22 @@ defmodule ExToolbox.Task.Bump do
     |> String.replace(~r/version: "#{actual_version}"/, "version: \"#{new_version}\"")
     |> write_file(context)
 
+    git_operations(new_version, context)
+
+    write :success, "fatto!"
+  end
+
+  defp git_operations(_, %{git: false}) do
+    write :skip, "skipping git operations"
+  end
+  defp git_operations(new_version, context) do
     command "git", ["commit", "-am", "\"new version #{new_version}\""], context
     command "git", ["tag", tag_name(new_version, context[:env])], context
     write "tag #{tag_name(new_version, context[:env])} creato"
+    write :success, "pushing on remote"
     command "git", ["push"], context
+    write :success, "pushing tags on remote"
     command "git", ["push", "--tags"], context
-    write "push su github"
-    write :success, "fatto!"
   end
 
   defp do_increment({:ok, version}, %{major: true}) do
