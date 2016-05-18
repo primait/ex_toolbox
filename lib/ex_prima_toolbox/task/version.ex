@@ -1,5 +1,5 @@
-defmodule ExToolbox.Task.Version do
-  use ExToolbox.Task
+defmodule ExPrimaToolbox.Task.Version do
+  use ExPrimaToolbox.Task
 
   def run!(context) do
     if context.verbose > 0 do

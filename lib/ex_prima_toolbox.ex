@@ -1,8 +1,8 @@
-defmodule ExToolbox do
+defmodule ExPrimaToolbox do
   @moduledoc """
   prima toolbox
   """
-  use Aliases
+  use ExPrimaToolbox.Aliases
   use ExCLI.DSL, mix_task: :prima
 
   name "prima"

@@ -1,5 +1,5 @@
-defmodule ExToolbox.Task.Bump do
-  use ExToolbox.Task
+defmodule ExPrimaToolbox.Task.Bump do
+  use ExPrimaToolbox.Task
 
   def run!(context) do
     IO.inspect(context)

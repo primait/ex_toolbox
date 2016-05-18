@@ -1,7 +1,7 @@
-defmodule ExToolbox.Task do
+defmodule ExPrimaToolbox.Task do
   defmacro __using__(_) do
     quote do
-      use Aliases
+      use ExPrimaToolbox.Aliases
 
       def mix_project do
         Mix.Project.get

@@ -1,4 +1,4 @@
-defmodule Aliases do
+defmodule ExPrimaToolbox.Aliases do
   defmacro __using__(_) do
     quote do
       alias ExToolbox.Task.Bump, as: BumpTask
