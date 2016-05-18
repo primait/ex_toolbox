@@ -1,4 +1,4 @@
-defmodule ExToolbox.Mixfile do
+defmodule ExPrimaToolbox.Mixfile do
   use Mix.Project
 
   def project do
@@ -7,7 +7,9 @@ defmodule ExToolbox.Mixfile do
      elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps]
+     deps: deps,
+     package: package,
+     description: "elixir toolbox for prima.it"]
   end
 
   # Configuration for the OTP application
@@ -28,5 +30,12 @@ defmodule ExToolbox.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:ex_cli, "~> 0.1.0"}]
+  end
+
+  defp package do
+    [
+     maintainers: ["Matteo Giachino"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/primait/ex_toolbox"}]
   end
 end

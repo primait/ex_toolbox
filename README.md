@@ -1,6 +1,6 @@
-# ExToolbox
+# ExPrimaToolbox
 
-**TODO: Add description**
+Some tasks to deploy, build and manage our elixir microservices
 
 ## Installation
 
