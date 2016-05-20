@@ -15,7 +15,7 @@ defmodule ExPrimaToolbox do
 
   command :version do
     description "prints the version of the application to the standard output, or to a file"
-    argument :filename, default: :empty
+    option :filename, help: "file to write version to", default: :empty, aliases: [:f]
 
     run context do
       VersionTask.run!(context)

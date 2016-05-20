@@ -21,7 +21,7 @@ defmodule ExPrimaToolbox.Task.Version do
     mix_project.project[:version]
   end
 
-  defp print_to_file(%{filename: filename}) do
+  defp print_to_file(%{filename: filename}) when filename != :empty do
     File.write! filename, version
   end
   defp print_to_file(_), do: nil
