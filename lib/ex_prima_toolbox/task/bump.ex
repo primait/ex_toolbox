@@ -40,10 +40,10 @@ defmodule ExPrimaToolbox.Task.Bump do
     command "git", ["commit", "-am", "\"new version #{new_version}\""], context
     command "git", ["tag", tag_name(new_version, context[:env])], context
     write "tag #{tag_name(new_version, context[:env])} creato"
-    write :success, "pushing on remote"
-    command "git", ["push"], context
     write :success, "pushing tags on remote"
     command "git", ["push", "--tags"], context
+    write :success, "pushing on remote"
+    command "git", ["push"], context
   end
 
   defp do_increment({:ok, version}, %{major: true}) do
