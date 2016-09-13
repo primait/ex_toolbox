@@ -30,7 +30,8 @@ defmodule ExPrimaToolbox.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:ex_cli, "~> 0.1.0"},
-     {:credo, ">= 0.0.0", only: [:dev, :test]}]
+     {:credo, ">= 0.0.0", only: [:dev, :test]},
+     {:ex_doc, ">= 0.0.0", only: :dev}]
   end
 
   defp package do
