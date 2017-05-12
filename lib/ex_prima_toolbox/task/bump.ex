@@ -22,8 +22,8 @@ defmodule ExPrimaToolbox.Task.Bump do
       exit(0)
     end
 
-    write "overwrite mix.exs file in #{mix_file}"
-    mix_file
+    write "overwrite mix.exs file in #{mix_file()}"
+    mix_file()
     |> File.read!
     |> String.replace(~r/version: "#{actual_version}"/, "version: \"#{new_version}\"")
     |> write_file(context)
@@ -61,7 +61,7 @@ defmodule ExPrimaToolbox.Task.Bump do
     IO.puts content
   end
   defp write_file(content, %{dry: false}) do
-    File.write!(mix_file, content)
+    File.write!(mix_file(), content)
   end
 
   defp command(cmd, args, %{dry: dry}) do

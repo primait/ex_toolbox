@@ -10,26 +10,26 @@ defmodule ExPrimaToolbox.Task do
   end
 
   def mix_project do
-    Mix.Project.get
+    Mix.Project.get()
   end
 
   def app_name do
-    mix_project.project[:app]
+    mix_project().project[:app]
   end
 
   def mix_file do
     "#{File.cwd!}/mix.exs"
   end
 
-  def write(:exit), do: IO.puts [color_exit, "PRIMA> ", color_reset, "exit"]
-  def write(msg), do: IO.puts [color, "PRIMA> ", color_reset, msg]
-  def write(:exit, msg), do: IO.puts [color_exit, "PRIMA> ", color_reset, msg]
-  def write(:skip, msg), do: IO.puts [color_exit, "PRIMA> ", color_reset, msg]
-  def write(:success, msg), do: IO.puts [color_success, "PRIMA> ", color_reset, msg]
-  def write(:question, msg), do: IO.puts [color_question, "PRIMA> ", color_reset, msg]
-  def write(:cmd, msg), do: IO.puts [color_command, "EXEC> ", color_reset, msg]
+  def write(:exit), do: IO.puts [color_exit(), "PRIMA> ", color_reset(), "exit"]
+  def write(msg), do: IO.puts [color(), "PRIMA> ", color_reset(), msg]
+  def write(:exit, msg), do: IO.puts [color_exit(), "PRIMA> ", color_reset(), msg]
+  def write(:skip, msg), do: IO.puts [color_exit(), "PRIMA> ", color_reset(), msg]
+  def write(:success, msg), do: IO.puts [color_success(), "PRIMA> ", color_reset(), msg]
+  def write(:question, msg), do: IO.puts [color_question(), "PRIMA> ", color_reset(), msg]
+  def write(:cmd, msg), do: IO.puts [color_command(), "EXEC> ", color_reset(), msg]
   def write(:yesno, msg, default \\ true) do
-    response = IO.gets [color_question, "PRIMA> ", color_reset, msg]
+    response = IO.gets [color_question(), "PRIMA> ", color_reset(), msg]
     case String.strip(response) do
       ""    -> default
       "y"   -> true
